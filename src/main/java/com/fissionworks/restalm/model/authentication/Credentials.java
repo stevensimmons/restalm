@@ -61,6 +61,12 @@ public final class Credentials {
 				"");
 	}
 
+	@Override
+	public String toString() {
+		return super.toString() + " extended by: <Credentials> {\n    password=|" + password + "|,\n    username=|"
+				+ username + "|\n}";
+	}
+
 	private void validatePassword(final String thePassword) {
 		Validate.notNull(thePassword, "The password cannot be null");
 		Validate.isTrue(thePassword.length() <= MAX_PASSWORD_LENGTH,

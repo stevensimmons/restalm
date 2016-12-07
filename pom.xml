@@ -28,7 +28,7 @@
 
 		<maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
 		<!-- <maven-war-plugin.version>2.6</maven-war-plugin.version> -->
-		<!-- <maven-surefire-plugin.version>2.18.1</maven-surefire-plugin.version> -->
+		<maven-surefire-plugin.version>2.19.1</maven-surefire-plugin.version>
 	</properties>
 
 	<dependencies>
@@ -108,6 +108,27 @@
 		</dependency>
 	</dependencies>
 
+	<profiles>
+		<profile>
+			<id>integration</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<configuration>
+							<suiteXmlFiles>
+								<suiteXmlFile>src/test/resources/testng/AlmUtilitiesSuite.xml</suiteXmlFile>
+								<suiteXmlFile>src/test/resources/testng/IntegrationSuite.xml</suiteXmlFile>
+							</suiteXmlFiles>
+							<!-- <argLine>-XX:-UseSplitVerifier</argLine> -->
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
 	<build>
 		<plugins>
 
@@ -120,6 +141,17 @@
 					<target>${java.compiler.target.version}</target>
 					<testSource>${java.compiler.source.version}</testSource>
 					<testTarget>${java.compiler.source.version}</testTarget>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${maven-surefire-plugin.version}</version>
+				<configuration>
+					<suiteXmlFiles>
+						<suiteXmlFile>src/test/resources/testng/AlmUtilitiesSuite.xml</suiteXmlFile>
+					</suiteXmlFiles>
+					<!-- <argLine>-XX:-UseSplitVerifier</argLine> -->
 				</configuration>
 			</plugin>
 		</plugins>

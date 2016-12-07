@@ -1,0 +1,64 @@
+<configuration>
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>ERROR</level>
+		</filter>
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="QC_LOG"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+	
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+		<cleanHistoryOnStart>true</cleanHistoryOnStart>
+			<fileNamePattern>unit-test-logs/QualityCenter.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<maxHistory>3</maxHistory>
+		</rollingPolicy>
+
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="THIRD_PARTY_LOG"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>INFO</level>
+		</filter>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+		<cleanHistoryOnStart>true</cleanHistoryOnStart>
+			<fileNamePattern>unit-test-logs/ThirdParty.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<maxHistory>2</maxHistory>
+		</rollingPolicy>
+
+
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+
+	<logger name="mil.navy.spawar" level="INFO">
+		<appender-ref ref="QC_LOG" />
+	</logger>
+
+	<logger name="org" level="INFO">
+		<appender-ref ref="THIRD_PARTY_LOG" />
+	</logger>
+
+	<logger name="com" level="INFO">
+		<appender-ref ref="THIRD_PARTY_LOG" />
+	</logger>
+
+	<root level="DEBUG">
+		<appender-ref ref="STDOUT" />
+	</root>
+
+</configuration>

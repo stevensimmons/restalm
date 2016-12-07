@@ -1,0 +1,10 @@
+<suite name="ALM Utilities Integration Suite" verbose="1" parallel="classes"
+	thread-count="8">
+
+	<test name="Integration">
+		<packages>
+			<package name="com.fissionworks.restalm.integration" />
+		</packages>
+	</test>
+
+</suite>

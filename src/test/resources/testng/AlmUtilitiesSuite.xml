@@ -1,0 +1,59 @@
+<suite name="ALM Utilities Suite" verbose="1" parallel="classes"
+	thread-count="8">
+
+	<test name="Core">
+		<packages>
+			<package name="com.fissionworks.restalm" />
+		</packages>
+	</test>
+	
+	<test name="Commons">
+		<packages>
+			<package name="com.fissionworks.restalm.commons" />
+		</packages>
+	</test>
+
+	<test name="Constants">
+		<packages>
+			<package name="com.fissionworks.restalm.constants" />
+			<package name="com.fissionworks.restalm.constants.field" />
+			<package name="com.fissionworks.restalm.constants.entity" />
+		</packages>
+	</test>
+
+	<test name="Conversion">
+		<packages>
+			<package name="com.fissionworks.restalm.conversion" />
+			<package name="com.fissionworks.restalm.conversion.error" />
+			<package name="com.fissionworks.restalm.conversion.marshalling" />
+		</packages>
+	</test>
+
+	<test name="Filter">
+		<packages>
+			<package name="com.fissionworks.restalm.filter" />
+		</packages>
+	</test>
+
+	<test name="Http">
+		<packages>
+			<package name="com.fissionworks.restalm.http" />
+		</packages>
+	</test>
+
+	<test name="Model">
+		<packages>
+			<package name="com.fissionworks.restalm.model.authentication" />
+			<package name="com.fissionworks.restalm.model.site" />
+			<package name="com.fissionworks.restalm.model.entity" />
+			<package name="com.fissionworks.restalm.model.entity.base" />
+			<package name="com.fissionworks.restalm.model.entity.testplan" />
+			<package name="com.fissionworks.restalm.model.entity.testlab" />
+			<package name="com.fissionworks.restalm.model.entity.management" />
+			<package name="com.fissionworks.restalm.model.customization" />
+			<package name="com.fissionworks.restalm.model.entity.defects" />
+			<package name="com.fissionworks.restalm.model.entity.requirements" />
+		</packages>
+	</test>
+
+</suite>
